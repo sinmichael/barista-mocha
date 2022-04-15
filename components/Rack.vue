@@ -517,15 +517,29 @@ export default Vue.extend({
       this.$store.dispatch('setIpAddress', ip)
       this.$store.dispatch('toggleModal')
 
+      // const instance = this.$axios.create({
+      //   baseURL: 'http://localhost/cgminer',
+      // });
+    
+      // try {
+      //   const response = await instance.get(`/api.php?ip=${ip}`)
+      //   console.log(response.data)
+      // } catch(error) {
+      //   console.log(error)
+      //   this.$store.dispatch('setDetailsError', true)
+      // }
+
+      //
+      // Dummy API
+      //
       const instance = this.$axios.create({
         baseURL: 'http://localhost/cgminer',
       });
     
       try {
-        const response = await instance.get(`/api.php?ip=${ip}`)
-        console.log(response.data)
+        const response = await instance.get(`/dummy-api.php`)
+        this.$store.dispatch('setDeviceDetails', response.data.null)
       } catch(error) {
-        console.log(error)
         this.$store.dispatch('setDetailsError', true)
       }
 

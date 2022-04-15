@@ -25,9 +25,9 @@
           Connecting to device...
         </p>
         <p v-else-if="!isDetailsLoading && !detailsError" class="py-4">
-          Total Hashrate: 0.000<br/>
-          Temperature: 0.000<br/>
-          Uptime: 0.000<br/>
+          Total Hashrate: {{ deviceDetails.total_rate }}<br/>
+          Temperature: {{ deviceDetails.temp_num }}<br/>
+          Uptime: {{ deviceDetails.Elapsed }}<br/>
         </p>
         <p v-else class="py-4">
           Cannot connect to device
@@ -81,6 +81,14 @@ export default Vue.extend({
     detailsError: {
       get() {
         return this.$store.state.detailsError
+      },
+      set(value) {
+        return value
+      }
+    },
+    deviceDetails: {
+      get() {
+        return this.$store.state.deviceDetails
       },
       set(value) {
         return value

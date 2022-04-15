@@ -3,6 +3,7 @@
     ipAddress: '',
     isDetailsLoading: false,
     detailsError: false,
+    deviceDetails: []
   })
   
   export const getters = {
@@ -17,6 +18,9 @@
     },
     detailsError(state) {
       return state.detailsError
+    },
+    deviceDetails(state) {
+      return state.deviceDetails
     }
   }
   
@@ -31,11 +35,13 @@
       this.commit('setIpAddress', ipAddress)
     },
     toggleIsDetailsLoading(context, toggle) {
-      console.log(`toggleIsDetailsLoading: ${toggle}`)
       this.commit('toggleIsDetailsLoading', toggle)
     },
     setDetailsError(context, error) {
       this.commit('setDetailsError', error)
+    },
+    setDeviceDetails(context, details) {
+      this.commit('setDeviceDetails', details)
     }
   }
   
@@ -54,6 +60,9 @@
     },
     setDetailsError(state, error) {
       state.detailsError = error
+    },
+    setDeviceDetails(state, details) {
+      state.deviceDetails = details
     }
   }
 
