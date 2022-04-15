@@ -18,7 +18,8 @@
               (code[25] == 'Idle' ? 'bg-purple-500' : ''),
               (code[25] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[25])">
             {{ code[25] }}<br /><span class="text-2xs">{{ slot[25] }}</span>
           </td>
           <td
@@ -32,7 +33,8 @@
               (code[26] == 'Idle' ? 'bg-purple-500' : ''),
               (code[26] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[26])">
             {{ code[26] }}<br /><span class="text-2xs">{{ slot[26] }}</span>
           </td>
           <td
@@ -46,7 +48,8 @@
               (code[27] == 'Idle' ? 'bg-purple-500' : ''),
               (code[27] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[27])">
             {{ code[27] }}<br /><span class="text-2xs">{{ slot[27] }}</span>
           </td>
           <td
@@ -60,7 +63,8 @@
               (code[28] == 'Idle' ? 'bg-purple-500' : ''),
               (code[28] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[28])">
             {{ code[28] }}<br /><span class="text-2xs">{{ slot[28] }}</span>
           </td>
           <td
@@ -74,7 +78,8 @@
               (code[29] == 'Idle' ? 'bg-purple-500' : ''),
               (code[29] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[29])">
             {{ code[29] }}<br /><span class="text-2xs">{{ slot[29] }}</span>
           </td>
         </tr>
@@ -92,7 +97,8 @@
               (code[20] == 'Idle' ? 'bg-purple-500' : ''),
               (code[20] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[20])">
             {{ code[20] }}<br /><span class="text-2xs">{{ slot[20] }}</span>
           </td>
           <td
@@ -106,7 +112,8 @@
               (code[21] == 'Idle' ? 'bg-purple-500' : ''),
               (code[21] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[21])">
             {{ code[21] }}<br /><span class="text-2xs">{{ slot[21] }}</span>
           </td>
           <td
@@ -120,7 +127,8 @@
               (code[22] == 'Idle' ? 'bg-purple-500' : ''),
               (code[22] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[22])">
             {{ code[22] }}<br /><span class="text-2xs">{{ slot[22] }}</span>
           </td>
           <td
@@ -134,7 +142,8 @@
               (code[23] == 'Idle' ? 'bg-purple-500' : ''),
               (code[23] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[23])">
             {{ code[23] }}<br /><span class="text-2xs">{{ slot[23] }}</span>
           </td>
           <td
@@ -148,7 +157,8 @@
               (code[24] == 'Idle' ? 'bg-purple-500' : ''),
               (code[24] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[24])">
             {{ code[24] }}<br /><span class="text-2xs">{{ slot[24] }}</span>
           </td>
         </tr>
@@ -166,7 +176,8 @@
               (code[15] == 'Idle' ? 'bg-purple-500' : ''),
               (code[15] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[15])">
             {{ code[15] }}<br /><span class="text-2xs">{{ slot[15] }}</span>
           </td>
           <td
@@ -180,7 +191,8 @@
               (code[16] == 'Idle' ? 'bg-purple-500' : ''),
               (code[16] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[16])">
             {{ code[16] }}<br /><span class="text-2xs">{{ slot[16] }}</span>
           </td>
           <td
@@ -194,7 +206,8 @@
               (code[17] == 'Idle' ? 'bg-purple-500' : ''),
               (code[17] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[17])">
             {{ code[17] }}<br /><span class="text-2xs">{{ slot[17] }}</span>
           </td>
           <td
@@ -208,7 +221,8 @@
               (code[18] == 'Idle' ? 'bg-purple-500' : ''),
               (code[18] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[18])">
             {{ code[18] }}<br /><span class="text-2xs">{{ slot[18] }}</span>
           </td>
           <td
@@ -222,7 +236,8 @@
               (code[19] == 'Idle' ? 'bg-purple-500' : ''),
               (code[19] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[19])">
             {{ code[19] }}<br /><span class="text-2xs">{{ slot[19] }}</span>
           </td>
         </tr>
@@ -240,7 +255,8 @@
               (code[10] == 'Idle' ? 'bg-purple-500' : ''),
               (code[10] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[10])">
             {{ code[10] }}<br /><span class="text-2xs">{{ slot[10] }}</span>
           </td>
           <td
@@ -254,7 +270,8 @@
               (code[11] == 'Idle' ? 'bg-purple-500' : ''),
               (code[11] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[11])">
             {{ code[11] }}<br /><span class="text-2xs">{{ slot[11] }}</span>
           </td>
           <td
@@ -268,7 +285,8 @@
               (code[12] == 'Idle' ? 'bg-purple-500' : ''),
               (code[12] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[12])">
             {{ code[12] }}<br /><span class="text-2xs">{{ slot[12] }}</span>
           </td>
           <td
@@ -282,7 +300,8 @@
               (code[13] == 'Idle' ? 'bg-purple-500' : ''),
               (code[13] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[13])">
             {{ code[13] }}<br /><span class="text-2xs">{{ slot[13] }}</span>
           </td>
           <td
@@ -296,7 +315,8 @@
               (code[14] == 'Idle' ? 'bg-purple-500' : ''),
               (code[14] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[14])">
             {{ code[14] }}<br /><span class="text-2xs">{{ slot[14] }}</span>
           </td>
         </tr>
@@ -314,7 +334,8 @@
               (code[5] == 'Idle' ? 'bg-purple-500' : ''),
               (code[5] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[5])">
             {{ code[5] }}<br /><span class="text-2xs">{{ slot[5] }}</span>
           </td>
           <td
@@ -328,7 +349,8 @@
               (code[6] == 'Idle' ? 'bg-purple-500' : ''),
               (code[6] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[6])">
             {{ code[6] }}<br /><span class="text-2xs">{{ slot[6] }}</span>
           </td>
           <td
@@ -342,7 +364,8 @@
               (code[7] == 'Idle' ? 'bg-purple-500' : ''),
               (code[7] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[7])">
             {{ code[7] }}<br /><span class="text-2xs">{{ slot[7] }}</span>
           </td>
           <td
@@ -356,7 +379,8 @@
               (code[8] == 'Idle' ? 'bg-purple-500' : ''),
               (code[8] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[8])">
             {{ code[8] }}<br /><span class="text-2xs">{{ slot[8] }}</span>
           </td>
           <td
@@ -370,7 +394,8 @@
               (code[9] == 'Idle' ? 'bg-purple-500' : ''),
               (code[9] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[9])">
             {{ code[9] }}<br /><span class="text-2xs">{{ slot[9] }}</span>
           </td>
         </tr>
@@ -388,7 +413,8 @@
               (code[0] == 'Idle' ? 'bg-purple-500' : ''),
               (code[0] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[0])">
             {{ code[0] }}<br /><span class="text-2xs">{{ slot[0] }}</span>
           </td>
           <td
@@ -402,7 +428,8 @@
               (code[1] == 'Idle' ? 'bg-purple-500' : ''),
               (code[1] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[1])">
             {{ code[1] }}<br /><span class="text-2xs">{{ slot[1] }}</span>
           </td>
           <td
@@ -416,7 +443,8 @@
               (code[2] == 'Idle' ? 'bg-purple-500' : ''),
               (code[2] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[2])">
             {{ code[2] }}<br /><span class="text-2xs">{{ slot[2] }}</span>
           </td>
           <td
@@ -430,7 +458,8 @@
               (code[3] == 'Idle' ? 'bg-purple-500' : ''),
               (code[3] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[3])">
             {{ code[3] }}<br /><span class="text-2xs">{{ slot[3] }}</span>
           </td>
           <td
@@ -444,7 +473,8 @@
               (code[4] == 'Idle' ? 'bg-purple-500' : ''),
               (code[4] == 'Stock' ? 'bg-yellow-300' : '')
             ]"
-            class="p-0 md:p-0.5 border border-base-300 text2xs md:text-xs text-gray-900">
+            class="p-0 md:p-0.5 border border-base-200 text-2xs md:text-xs text-gray-900"
+            @click="cellClick(slot[4])">
             {{ code[4] }}<br /><span class="text-2xs">{{ slot[4] }}</span>
           </td>
         </tr>
@@ -466,7 +496,7 @@ export default Vue.extend({
     return {
       devices: [] as any,
       code: [] as any,
-      slot: [] as any
+      slot: [] as any,
     }
   },
   async mounted() {
@@ -482,11 +512,31 @@ export default Vue.extend({
       const response = await this.$axios.get(`/devices/${this.serialNumber}`)
       return response.data
     },
-  }
+    async cellClick(ip: string) {
+      this.$store.dispatch('toggleIsDetailsLoading', true)
+      this.$store.dispatch('setIpAddress', ip)
+      this.$store.dispatch('toggleModal')
+
+      const instance = this.$axios.create({
+        baseURL: 'http://localhost/cgminer',
+      });
+    
+      try {
+        const response = await instance.get(`/api.php?ip=${ip}`)
+        console.log(response.data)
+      } catch(error) {
+        console.log(error)
+        this.$store.dispatch('setDetailsError', true)
+      }
+
+      this.$store.dispatch('toggleIsDetailsLoading', false)
+    }
+  },
 })
 </script>
 
 <style>
   table { table-layout: fixed; }
-  td { width: 20%; height:37.5px }
+  td { width: 20%; height:37.5px; }
+  td:hover { cursor: pointer; }
 </style>
