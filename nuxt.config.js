@@ -34,6 +34,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/toast'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -68,4 +69,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  toast: {
+    position: 'bottom-center',
+    duration: '3000',
+    theme: 'bubble'
+  },
 }
