@@ -516,17 +516,7 @@ export default Vue.extend({
       this.$store.dispatch('toggleIsDetailsLoading', true)
       this.$store.dispatch('setIpAddress', ip)
       this.$store.dispatch('toggleModal')
-
-      const instance = this.$axios.create({
-        baseURL: 'http://localhost/cgminer',
-      });
-    
-      try {
-        const response = await instance.get(`/api.php?ip=${ip}`)
-        this.$store.dispatch('setDeviceDetails', response.data.null)
-      } catch(error) {
-        this.$store.dispatch('setDetailsError', true)
-      }
+      this.$store.dispatch('setDetailsError', false)
 
       //
       // Dummy API
@@ -534,13 +524,63 @@ export default Vue.extend({
       // const instance = this.$axios.create({
       //   baseURL: 'http://localhost/cgminer',
       // });
+
+      const instance = this.$axios.create({
+        baseURL: 'http://localhost/cgminer',
+      });
     
       // try {
-      //   const response = await instance.get(`/dummy-api.php`)
+      //   const response = await instance.get(`/api.php?ip=${ip}`)
       //   this.$store.dispatch('setDeviceDetails', response.data.null)
       // } catch(error) {
       //   this.$store.dispatch('setDetailsError', true)
       // }
+
+
+    
+      try {
+        // Dummy API
+        // const response = await instance.get(`/dummy-api.php`)
+        const response = await instance.get(`/api.php?ip=${ip}`)
+        if (response.data.null) {
+          response.data.null.Elapsed = new Date(response.data.null.Elapsed * 1000).toISOString().substr(11, 8)
+          this.$store.dispatch('setDeviceDetails', response.data.null)
+        }
+        
+        if (response.data.STATS0) {
+          const eight = response.data.STATS0["8"].split('] ')
+          
+          let mGhs = eight.find((element: string|any[]) => {
+            if (element.includes('MGHS')) {
+              return true;
+            }
+          });
+          mGhs = mGhs.replace('MGHS[', '')
+
+          let tAvg = eight.find((element: string|any[]) => {
+            if (element.includes('TAvg')) {
+              return true;
+            }
+          });
+          tAvg = tAvg.replace('TAvg[', '')
+          
+          let elapsed = eight.find((element: string|any[]) => {
+            if (element.includes('Elapsed')) {
+              return true;
+            }
+          });
+          elapsed = elapsed.replace('Elapsed[', '')
+          elapsed = new Date(elapsed * 1000).toISOString().substr(11, 8)
+
+          const responseAvalon = { total_rate: mGhs, temp_num: tAvg, Elapsed: elapsed }
+          this.$store.dispatch('setDeviceDetails', responseAvalon)
+          
+        }
+
+      } catch(error) {
+        console.log(error)
+        this.$store.dispatch('setDetailsError', true)
+      }
 
       this.$store.dispatch('toggleIsDetailsLoading', false)
     }
