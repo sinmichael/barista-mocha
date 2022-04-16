@@ -521,13 +521,13 @@ export default Vue.extend({
       //
       // Dummy API
       //
-      // const instance = this.$axios.create({
-      //   baseURL: 'http://localhost/cgminer',
-      // });
-
       const instance = this.$axios.create({
         baseURL: 'http://localhost/cgminer',
       });
+
+      // const instance = this.$axios.create({
+      //   baseURL: 'http://localhost/cgminer',
+      // });
     
       // try {
       //   const response = await instance.get(`/api.php?ip=${ip}`)
@@ -540,22 +540,26 @@ export default Vue.extend({
     
       try {
         // Dummy API
-        // const response = await instance.get(`/dummy-api.php`)
-        const response = await instance.get(`/api.php?ip=${ip}`)
+        const response = await instance.get(`/dummy-api.php`)
+        // const response = await instance.get(`/api.php?ip=${ip}`)
+
+        // If device is an Antminer
         if (response.data.null) {
           response.data.null.Elapsed = new Date(response.data.null.Elapsed * 1000).toISOString().substr(11, 8)
+          response.data.null.temp_num = (parseInt(response.data.null.temp1) + parseInt(response.data.null.temp2) + parseInt(response.data.null.temp3)) / 3
           this.$store.dispatch('setDeviceDetails', response.data.null)
         }
         
+        // If device is an Avalon
         if (response.data.STATS0) {
           const eight = response.data.STATS0["8"].split('] ')
           
-          let mGhs = eight.find((element: string|any[]) => {
-            if (element.includes('MGHS')) {
+          let ghsAvg = eight.find((element: string|any[]) => {
+            if (element.includes('GHSavg')) {
               return true;
             }
           });
-          mGhs = mGhs.replace('MGHS[', '')
+          ghsAvg = ghsAvg.replace('GHSavg[', '')
 
           let tAvg = eight.find((element: string|any[]) => {
             if (element.includes('TAvg')) {
@@ -572,7 +576,7 @@ export default Vue.extend({
           elapsed = elapsed.replace('Elapsed[', '')
           elapsed = new Date(elapsed * 1000).toISOString().substr(11, 8)
 
-          const responseAvalon = { total_rate: mGhs, temp_num: tAvg, Elapsed: elapsed }
+          const responseAvalon = { total_rate: ghsAvg, temp_num: tAvg, Elapsed: elapsed }
           this.$store.dispatch('setDeviceDetails', responseAvalon)
           
         }
