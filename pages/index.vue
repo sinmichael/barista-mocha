@@ -34,13 +34,13 @@
           Rejected: {{ deviceDetails.Rejected }}<br/>
           Hardware Errors: {{ deviceDetails['Hardware Errors'] }}<br/>
           Network Blocks: {{ deviceDetails['Network Blocks'] }}<br/>
-          Difficulty Accepted: {{ deviceDetails['Difficulty Accepted'] }}<br/>
-          Difficulty Rejected: {{ deviceDetails['Difficulty Rejected'] }}<br/>
-          Difficulty Stale: {{ deviceDetails['Difficulty Stale'] }}<br/>
+          Difficulty Accepted: {{ (deviceDetails['Difficulty Accepted'] * 1).toFixed(2) }}<br/>
+          Difficulty Rejected: {{ (deviceDetails['Difficulty Rejected'] * 1).toFixed(2) }}<br/>
+          Difficulty Stale: {{ (deviceDetails['Difficulty Stale'] * 1).toFixed(2) }}<br/>
           Best Share: {{ deviceDetails['Best Share'] }}<br/>
-          Device Rejected%: {{ deviceDetails['Device Rejected%'] }}<br/>
-          Pool Rejected%: {{ deviceDetails['Pool Rejected%'] }}<br/>
-          Pool Stale%: {{ deviceDetails['Pool Stale%'] }}<br/>
+          Device Rejected%: {{ (deviceDetails['Device Rejected%'] * 1).toFixed(2) }}<br/>
+          Pool Rejected%: {{ (deviceDetails['Pool Rejected%'] * 1).toFixed(2) }}<br/>
+          Pool Stale%: {{ (deviceDetails['Pool Stale%'] * 1).toFixed(2) }}<br/>
           Last getwork: {{ deviceDetails['Last getwork'] }}<br/>
         </p>
         <p v-else class="py-4">
