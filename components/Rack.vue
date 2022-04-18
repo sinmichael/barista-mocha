@@ -518,70 +518,27 @@ export default Vue.extend({
       this.$store.dispatch('toggleModal')
       this.$store.dispatch('setDetailsError', false)
 
-      //
-      // Dummy API
-      //
-      // const instance = this.$axios.create({
-      //   baseURL: 'http://localhost/cgminer',
-      // });
-
       const instance = this.$axios.create({
         baseURL: 'http://localhost/cgminer',
       });
-    
-      // try {
-      //   const response = await instance.get(`/api.php?ip=${ip}`)
-      //   this.$store.dispatch('setDeviceDetails', response.data.null)
-      // } catch(error) {
-      //   this.$store.dispatch('setDetailsError', true)
-      // }
-
-
     
       try {
         // Dummy API
         // const response = await instance.get(`/dummy-api.php`)
         
-        const response = await instance.get(`/api.php?ip=${ip}`)
+        const response = await instance.get(`/api2.php?ip=${ip}?summary=1`)
 
-        // If device is an Antminer
-        if (response.data.null) {
-          response.data.null.Elapsed = new Date(response.data.null.Elapsed * 1000).toISOString().substr(11, 8)
-          response.data.null.temp_num = (parseInt(response.data.null.temp1) + parseInt(response.data.null.temp2) + parseInt(response.data.null.temp3)) / 3
-          this.$store.dispatch('setDeviceDetails', response.data.null)
+        if (response.data.SUMMARY) {
+          response.data.SUMMARY.Elapsed = new Date(response.data.SUMMARY.Elapsed * 1000).toISOString().substr(11, 8)
+          if (response.data.SUMMARY['MHS av']) {
+            response.data.SUMMARY.ThsAv = (parseFloat(response.data.SUMMARY['MHS av']) / 1000000).toFixed(2)
+          }
+          if (response.data.SUMMARY['GHS av']) {
+            response.data.SUMMARY.ThsAv = (parseFloat(response.data.SUMMARY['GHS av']) / 1000000).toFixed(2)
+          }
+          this.$store.dispatch('setDeviceDetails', response.data.SUMMARY)
         }
         
-        // If device is an Avalon
-        if (response.data.STATS0) {
-          const eight = response.data.STATS0["8"].split('] ')
-          
-          let ghsAvg = eight.find((element: string|any[]) => {
-            if (element.includes('GHSavg')) {
-              return true;
-            }
-          });
-          ghsAvg = ghsAvg.replace('GHSavg[', '')
-
-          let tAvg = eight.find((element: string|any[]) => {
-            if (element.includes('TAvg')) {
-              return true;
-            }
-          });
-          tAvg = tAvg.replace('TAvg[', '')
-          
-          let elapsed = eight.find((element: string|any[]) => {
-            if (element.includes('Elapsed')) {
-              return true;
-            }
-          });
-          elapsed = elapsed.replace('Elapsed[', '')
-          elapsed = new Date(elapsed * 1000).toISOString().substr(11, 8)
-
-          const responseAvalon = { total_rate: ghsAvg, temp_num: tAvg, Elapsed: elapsed }
-          this.$store.dispatch('setDeviceDetails', responseAvalon)
-          
-        }
-
       } catch(error) {
         console.log(error)
         this.$store.dispatch('setDetailsError', true)

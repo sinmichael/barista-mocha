@@ -25,9 +25,22 @@
           Connecting to device...
         </p>
         <p v-else-if="!isDetailsLoading && !detailsError" class="py-4">
-          Total Hashrate: {{ deviceDetails.total_rate }}<br/>
-          Temperature: {{ deviceDetails.temp_num }}<br/>
-          Uptime: {{ deviceDetails.Elapsed }}<br/>
+          TH/s Average: {{ deviceDetails.ThsAv }}<br/>
+          Elapsed: {{ deviceDetails.Elapsed }}<br/>
+          Found Blocks: {{ deviceDetails['Found Blocks'] }}<br/>
+          Getworks: {{ deviceDetails.Getworks }}<br/>
+          Accepted: {{ deviceDetails.Accepted }}<br/>
+          Rejected: {{ deviceDetails.Rejected }}<br/>
+          Hardware Errors: {{ deviceDetails['Hardware Errors'] }}<br/>
+          Network Blocks: {{ deviceDetails['Network Blocks'] }}<br/>
+          Difficulty Accepted: {{ deviceDetails['Difficulty Accepted'] }}<br/>
+          Difficulty Rejected: {{ deviceDetails['Difficulty Rejected'] }}<br/>
+          Difficulty Stale: {{ deviceDetails['Difficulty Stale'] }}<br/>
+          Best Share: {{ deviceDetails['Best Share'] }}<br/>
+          Device Rejected%: {{ deviceDetails['Device Rejected%'] }}<br/>
+          Pool Rejected%: {{ deviceDetails['Pool Rejected%'] }}<br/>
+          Pool Stale%: {{ deviceDetails['Pool Stale%'] }}<br/>
+          Last getwork: {{ deviceDetails['Last getwork'] }}<br/>
         </p>
         <p v-else class="py-4">
           Cannot connect to device
