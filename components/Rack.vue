@@ -521,13 +521,13 @@ export default Vue.extend({
       //
       // Dummy API
       //
-      const instance = this.$axios.create({
-        baseURL: 'http://localhost/cgminer',
-      });
-
       // const instance = this.$axios.create({
       //   baseURL: 'http://localhost/cgminer',
       // });
+
+      const instance = this.$axios.create({
+        baseURL: 'http://localhost/cgminer',
+      });
     
       // try {
       //   const response = await instance.get(`/api.php?ip=${ip}`)
@@ -540,8 +540,9 @@ export default Vue.extend({
     
       try {
         // Dummy API
-        const response = await instance.get(`/dummy-api.php`)
-        // const response = await instance.get(`/api.php?ip=${ip}`)
+        // const response = await instance.get(`/dummy-api.php`)
+        
+        const response = await instance.get(`/api.php?ip=${ip}`)
 
         // If device is an Antminer
         if (response.data.null) {
