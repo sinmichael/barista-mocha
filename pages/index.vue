@@ -27,6 +27,7 @@
         <p v-else-if="!isDetailsLoading && !detailsError" class="py-4">
           TH/s Average: {{ deviceDetails.ThsAv }}<br/>
           Elapsed: {{ deviceDetails.Elapsed }}<br/>
+          Temperature: {{ deviceDetails.temperature }}<br/>
           Found Blocks: {{ deviceDetails['Found Blocks'] }}<br/>
           Getworks: {{ deviceDetails.Getworks }}<br/>
           Accepted: {{ deviceDetails.Accepted }}<br/>

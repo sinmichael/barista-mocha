@@ -524,19 +524,46 @@ export default Vue.extend({
     
       try {
         // Dummy API
-        // const response = await instance.get(`/dummy-api.php`)
+        // const responseSummary = await instance.get(`/dummy-api.php?summary=1`)
         
-        const response = await instance.get(`/api2.php?ip=${ip}?summary=1`)
+        const responseSummary = await instance.get(`/api2.php?ip=${ip}&summary=1`)
 
-        if (response.data.SUMMARY) {
-          response.data.SUMMARY.Elapsed = new Date(response.data.SUMMARY.Elapsed * 1000).toISOString().substr(11, 8)
-          if (response.data.SUMMARY['MHS av']) {
-            response.data.SUMMARY.ThsAv = (parseFloat(response.data.SUMMARY['MHS av']) / 1000000).toFixed(2)
+        if (responseSummary.data.SUMMARY) {
+          responseSummary.data.SUMMARY.Elapsed = new Date(responseSummary.data.SUMMARY.Elapsed * 1000).toISOString().substr(11, 8)
+          if (responseSummary.data.SUMMARY['MHS av']) {
+            responseSummary.data.SUMMARY.ThsAv = (parseFloat(responseSummary.data.SUMMARY['MHS av']) / 1000000).toFixed(2)
           }
-          if (response.data.SUMMARY['GHS av']) {
-            response.data.SUMMARY.ThsAv = (parseFloat(response.data.SUMMARY['GHS av']) / 1000000).toFixed(2)
+          if (responseSummary.data.SUMMARY['GHS av']) {
+            responseSummary.data.SUMMARY.ThsAv = (parseFloat(responseSummary.data.SUMMARY['GHS av']) / 1000).toFixed(2)
           }
-          this.$store.dispatch('setDeviceDetails', response.data.SUMMARY)
+
+          //
+          // Get temperature
+          //
+          
+          // Dummy API
+          // const responseStats = await instance.get(`/dummy-api.php`)
+
+          const responseStats = await instance.get(`/api.php?ip=${ip}`)
+
+          // If device is an Avalon
+          if (responseStats.data.STATS0) {
+            const eight = responseStats.data.STATS0["8"].split('] ')
+            let MtAvg = eight.find((element: string|any[]) => {
+              if (element.includes('MTavg')) {
+                return true;
+              }
+            });
+            MtAvg = MtAvg.replace('MTavg[', '').replace(' ', ' / ')
+            responseSummary.data.SUMMARY.temperature = MtAvg
+          }
+
+          // If device is an Antminer
+          if (responseStats.data.null) {
+            responseSummary.data.SUMMARY.temperature = responseStats.data.null.temp1 + ' / ' + responseStats.data.null.temp2 + ' / ' + responseStats.data.null.temp3
+          }
+
+          this.$store.dispatch('setDeviceDetails', responseSummary.data.SUMMARY)
         }
         
       } catch(error) {
