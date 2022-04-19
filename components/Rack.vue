@@ -544,7 +544,7 @@ export default Vue.extend({
           // Dummy API
           // const responseStats = await instance.get(`/dummy-api.php`)
 
-          const responseStats = await instance.get(`/api.php?ip=${ip}`)
+          const responseStats = await instance.get(`/api2.php?ip=${ip}`)
 
           // If device is an Avalon
           if (responseStats.data.STATS0) {
