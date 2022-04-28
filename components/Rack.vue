@@ -502,9 +502,11 @@ export default Vue.extend({
   async mounted() {
     this.devices = await this.loadDevices()
     for (const device of this.devices) {
-      const index = parseInt(device.port) - 1
-      this.$set(this.code, index, device.code)
-      this.$set(this.slot, index, device.ip)
+      if (device.port !== 'N/A') {
+        const index = parseInt(device.port) - 1
+        this.$set(this.code, index, device.code)
+        this.$set(this.slot, index, device.ip)
+      }
     }
   },
   methods: {
