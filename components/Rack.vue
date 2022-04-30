@@ -4,6 +4,14 @@
   <div class="card w-100 bg-base-100 shadow-xl">
     <div class="card-body">
       <h2 class="card-title">{{ name }}</h2>
+      <div class="flex flex-row mt-2 mb-6">
+        <div v-if="a1047count != 0" class="badge bg-blue-500 border-blue-500 mx-1 text-sm">A1047: {{a1047count}}</div>
+        <div v-if="t17count != 0" class="badge bg-indigo-600 border-indigo-600 mx-1 text-sm">T17: {{t17count}}</div>
+        <div v-if="t17pcount != 0" class="badge bg-green-500 border-green-500 mx-1 text-sm">T17+: {{t17pcount}}</div>
+        <div v-if="t19count != 0" class="badge bg-pink-600 border-pink-600 mx-1 text-sm">T19: {{t19count}}</div>
+        <div v-if="s17pcount != 0" class="badge bg-yellow-500 border-yellow-500 mx-1 text-sm">S17+: {{s17pcount}}</div>
+        <div v-if="s19count != 0" class="badge bg-yellow-700 border-yellow-700 mx-1 text-sm">S19: {{s19count}}</div>
+      </div>
       <table class="text-center">
         <!-- 25 to 29 -->
         <tr>
@@ -497,17 +505,29 @@ export default Vue.extend({
       devices: [] as any,
       code: [] as any,
       slot: [] as any,
+      a1047count: 0,
+      t17count: 0,
+      t17pcount: 0,
+      t19count: 0,
+      s17pcount: 0,
+      s19count: 0,
     }
   },
   async mounted() {
     this.devices = await this.loadDevices()
-    for (const device of this.devices) {
+    for (const device of this.devices.data) {
       if (device.port !== 'N/A') {
         const index = parseInt(device.port) - 1
         this.$set(this.code, index, device.code)
         this.$set(this.slot, index, device.ip)
       }
     }
+    this.a1047count = this.devices.stats.a1047count
+    this.t17count = this.devices.stats.t17count
+    this.t17pcount = this.devices.stats.t17pcount
+    this.t19count = this.devices.stats.t19count
+    this.s17pcount = this.devices.stats.s17pcount
+    this.s19count = this.devices.stats.s19count
   },
   methods: {
     async loadDevices() {
