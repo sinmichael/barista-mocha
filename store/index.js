@@ -3,7 +3,13 @@
     ipAddress: '',
     isDetailsLoading: false,
     detailsError: false,
-    deviceDetails: []
+    deviceDetails: [],
+    a1047total: 0,
+    t17total: 0,
+    t17ptotal: 0,
+    t19total: 0,
+    s17ptotal: 0,
+    s19total: 0,
   })
   
   export const getters = {
@@ -21,6 +27,9 @@
     },
     deviceDetails(state) {
       return state.deviceDetails
+    },
+    a1047total(state) {
+      return state.a1047total
     }
   }
   
@@ -42,6 +51,27 @@
     },
     setDeviceDetails(context, details) {
       this.commit('setDeviceDetails', details)
+    },
+    setA1047total(context, value) {
+      this.commit('setA1047total', value)
+    },
+    setT17total(context, value) {
+      this.commit('setT17total', value)
+    },
+    setT17Ptotal(context, value) {
+      this.commit('setT17Ptotal', value)
+    },
+    setT19total(context, value) {
+      this.commit('setT19total', value)
+    },
+    setS17Ptotal(context, value) {
+      this.commit('setS17Ptotal', value)
+    },
+    setS19total(context, value) {
+      this.commit('setS19total', value)
+    },
+    clearAllTotal(context) {
+      this.commit('clearAllTotal')
     }
   }
   
@@ -63,6 +93,32 @@
     },
     setDeviceDetails(state, details) {
       state.deviceDetails = details
+    },
+    setA1047total(state, value) {
+      state.a1047total = state.a1047total + value
+    },
+    setT17total(state, value) {
+      state.t17total = state.t17total + value
+    },
+    setT17Ptotal(state, value) {
+      state.t17ptotal = state.t17ptotal + value
+    },
+    setT19total(state, value) {
+      state.t19total = state.t19total + value
+    },
+    setS17Ptotal(state, value) {
+      state.s17ptotal = state.s17ptotal + value
+    },
+    setS19total(state, value) {
+      state.s19total = state.s19total + value
+    },
+    clearAllTotal(state) {
+      state.a1047total = 0
+      state.t17total = 0
+      state.t17ptotal = 0
+      state.t19total = 0
+      state.s17ptotal = 0
+      state.s19total = 0
     }
   }
 

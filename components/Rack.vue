@@ -528,6 +528,13 @@ export default Vue.extend({
     this.t19count = this.devices.stats.t19count
     this.s17pcount = this.devices.stats.s17pcount
     this.s19count = this.devices.stats.s19count
+
+    this.$store.dispatch('setA1047total', this.a1047count)
+    this.$store.dispatch('setT17total', this.t17count)
+    this.$store.dispatch('setT17Ptotal', this.t17pcount)
+    this.$store.dispatch('setT19total', this.t19count)
+    this.$store.dispatch('setS17Ptotal', this.s17pcount)
+    this.$store.dispatch('s19count', this.s19count)
   },
   methods: {
     async loadDevices() {
