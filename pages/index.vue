@@ -20,7 +20,7 @@
         <option value="M13-POD4">M13-POD4</option>
       </select>
     </div>
-    <div class="stats shadow">
+    <div class="stats shadow mb-6">
       <div class="stat">
         <div class="stat-title">A1047</div>
         <div class="stat-value text-blue-500">{{ a1047total }}</div>
